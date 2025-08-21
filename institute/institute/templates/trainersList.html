@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Trainer Name</th>
+            <th scope="col">Details / Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trainer in trainers %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{trainer.empId}}</td>
+                <td>{{trainer.name}}</td>
+                <td>
+                    <a href = "{% url "trainerdetails" trainer.id %}" class="btn btn-warning">Details</a>
+                    <a href = "{% url "removetrainer" trainer.id %}" class="btn btn-danger">Remove</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

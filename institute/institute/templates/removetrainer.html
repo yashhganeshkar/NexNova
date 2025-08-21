@@ -1,0 +1,14 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2>Remove Trainer</h2>
+    <p>Are You sure that you want to Remove Trainer?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">Delete</button>
+        <a class="btn btn-warning" href="{% url 'trainers' %}">Cancel</a>
+    </form>
+    
+{% endblock %}

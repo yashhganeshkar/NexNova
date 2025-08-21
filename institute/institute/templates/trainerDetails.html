@@ -1,0 +1,32 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card" style="width: 18rem;">
+        <h2>Trainer Details</h2>
+        <div class="card-header">
+            <b>Name = </b>{{trainer.name}}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Employee ID = </b>{{trainer.empId}}</li>
+            <li class="list-group-item"><b>Email = </b>{{trainer.email}}</li>
+            <li class="list-group-item"><b>Contact = </b>{{trainer.phone}}</li>
+            <li class="list-group-item">
+                <b>Subject Taught = </b>
+                {% for subject in trainer.subjects.all %}
+                    <span class="badge rounded-pill text-bg-secondary">
+                        {{subject.name}}
+                    </span>
+                    {% empty %}
+                    <span class="text-muted">No subjects assigned</span>
+            </li>
+                {% endfor %}
+                
+        </ul>
+        <a class="btn btn-primary" href="{% url 'trainers' %}">Back</a>
+    </div>
+</div>
+
+{% endblock %}
